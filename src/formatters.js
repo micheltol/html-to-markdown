@@ -37,7 +37,7 @@ function makeRegex (regex, doc, before, after, replaceFn) {
       if(replaceFn && typeof(replaceFn) === 'function'){
         replaceText = replaceFn(matches)
       }
-      replaceString += replaceText + "\n";
+      replaceString += replaceText;
       replaceString += after || '';
       newDoc = newDoc.replace(matches[0],replaceString);
     }
@@ -125,7 +125,7 @@ function replaceBlockQuote (doc) {
  * @return {String}           [description]
  */
 function replaceBold (doc) {
-  return makeRegex(boldRegex, doc, '** ', ' **');
+  return makeRegex(boldRegex, doc, '**', '**');
 }
 
 /**
@@ -136,7 +136,7 @@ function replaceBold (doc) {
  * @return {String}           [description]
  */
 function replaceItalic (doc) {
-  return makeRegex(italicRegex, doc, '* ', ' *');
+  return makeRegex(italicRegex, doc, '*', '*');
 }
 
 /**
